@@ -17,3 +17,6 @@ RestrictRealtime=yes
 ReadWritePaths=/var/lib/registry /etc/registry
 SystemCallFilter=~@mount
 #CapabilityBoundingSet=CAP_NET_ADMIN
+
+[Install]
+WantedBy=multi-user.target
