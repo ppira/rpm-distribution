@@ -1,0 +1,19 @@
+[Unit]
+Description=OCI Registry
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/registry serve /etc/registry/config.yaml
+Restart=on-failure
+
+MemoryDenyWriteExecute=yes
+PrivateTmp=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectKernelModules=yes
+ProtectSystem=full
+#RestrictAddressFamilies=AF_NETLINK AF_UNIX
+RestrictRealtime=yes
+ReadWritePaths=/var/lib/registry /etc/registry
+SystemCallFilter=~@mount
+#CapabilityBoundingSet=CAP_NET_ADMIN
